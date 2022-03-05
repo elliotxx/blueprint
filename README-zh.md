@@ -6,11 +6,17 @@
 [![Go Reference](https://pkg.go.dev/badge/github.com/elliotxx/blueprint.svg)](https://pkg.go.dev/github.com/elliotxx/blueprint)
 [![Coverage Status](https://coveralls.io/repos/github/elliotxx/blueprint/badge.svg)](https://coveralls.io/github/elliotxx/blueprint)
 
-> 这是一个用 Go 和 cobra 编写的 CLI 应用
+> 这是一个用 Go 语言编写的脚手架引擎
 
 ## 📜 语言
 
 [English](https://github.com/elliotxx/blueprint/blob/master/README.md) | [简体中文](https://github.com/elliotxx/blueprint/blob/master/README-zh.md)
+
+## ✨ 特性
+
+* 使用配置文件声明变量的名字、默认值、描述等
+* 整个目录作为模板文件
+* 自动生成 Cobra Command
 
 ## 🛠️ 安装
 

@@ -1,0 +1,16 @@
+{
+  "variables": {
+    "Env": {
+      "description": "The env name. One of dev,test,stable,pre,sim,gray,prod.",
+      "default": "dev"
+    },
+    "ClusterName": {
+      "description": "The Cluster Name.",
+      "default": "kubernetes-dev"
+    },
+    "Image": {
+      "description": "The Image Address.",
+      "default": "gcr.io/google-samples/gb-frontend:v4"
+    }
+  }
+}
