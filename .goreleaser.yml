@@ -23,7 +23,7 @@ builds:
     # ignore:
     #   - goos: windows
     #     goarch: arm64
-    main: ./cmd/go-cli-prototype
+    main: ./cmd/blueprint
 archives:
   - replacements:
       darwin: Darwin
@@ -45,12 +45,12 @@ changelog:
 release:
   github:
     owner: elliotxx
-    name: go-cli-prototype
+    name: blueprint
   draft: false
   footer: |
     ## Docker Images
-    * `elliotxx/go-cli-prototype:{{ .Tag }}`
-    * `elliotxx/go-cli-prototype:{{ .Tag }}-arm64`
+    * `elliotxx/blueprint:{{ .Tag }}`
+    * `elliotxx/blueprint:{{ .Tag }}-arm64`
 
     ## Thanks!
 
@@ -91,7 +91,7 @@ brews:
       name: homebrew-tap
       # token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
 
-    url_template: "https://github.com/elliotxx/go-cli-prototype/releases/download/{{ .Tag }}/{{ .ArtifactName }}"
+    url_template: "https://github.com/elliotxx/blueprint/releases/download/{{ .Tag }}/{{ .ArtifactName }}"
     download_strategy: CurlDownloadStrategy
 
     # Git author used to commit to the repository.
@@ -101,9 +101,9 @@ brews:
       email: goreleaser@carlosbecker.com
 
     folder: HomebrewFormula
-    homepage: "https://github.com/elliotxx/go-cli-prototype"
+    homepage: "https://github.com/elliotxx/blueprint"
     description: "This is a cli application with go and cobra."
     license: "MIT"
     skip_upload: false
     test: |
-      system "#{bin}/go-cli-prototype -V"
+      system "#{bin}/blueprint -V"

@@ -5,7 +5,7 @@ import (
 	"io/ioutil"
 	"log"
 
-	"github.com/elliotxx/go-cli-prototype/pkg/version"
+	"github.com/elliotxx/blueprint/pkg/version"
 )
 
 func main() {

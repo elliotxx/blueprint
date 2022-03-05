@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/elliotxx/go-cli-prototype/pkg/version"
+	"github.com/elliotxx/blueprint/pkg/version"
 	"github.com/spf13/cobra"
 	"k8s.io/kubectl/pkg/util/i18n"
 	"k8s.io/kubectl/pkg/util/templates"
@@ -15,9 +15,9 @@ var (
 	cmdLong    = templates.LongDesc(i18n.T(`This is a cli application with go and cobra.`))
 	cmdExample = templates.Examples(i18n.T(`
 		# Show version info
-		go-cli-prototype -V
+		blueprint -V
 		# Show echo info
-		go-cli-prototype -e "hello world"`))
+		blueprint -e "hello world"`))
 )
 
 type Options struct {
@@ -34,7 +34,7 @@ func configureCLI() *cobra.Command {
 	o := NewMainOptions()
 
 	rootCmd := &cobra.Command{
-		Use:          "go-cli-prototype",
+		Use:          "blueprint",
 		Short:        cmdShort,
 		Long:         cmdLong,
 		Example:      cmdExample,

@@ -1,4 +1,4 @@
-module github.com/elliotxx/go-cli-prototype
+module github.com/elliotxx/blueprint
 
 go 1.17
 
