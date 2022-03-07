@@ -1,45 +1,17 @@
 package blueprint
 
 import (
+	"os"
 	"reflect"
 	"testing"
+
+	"github.com/elliotxx/gulu/json"
 )
 
-var TestVariableMap = map[string]*Variable{
-	"Env": {
-		Name:        "Env",
-		Description: "The env name. One of dev,test,stable,pre,sim,gray,prod.",
-		Default:     "dev",
-	},
-	"ClusterName": {
-		Name:        "ClusterName",
-		Description: "The Cluster Name.",
-		Default:     "kubernetes-dev",
-	},
-	"Image": {
-		Name:        "Image",
-		Description: "The Image Address.",
-		Default:     "gcr.io/google-samples/gb-frontend:v4",
-	},
-}
-
-var TestVariableSlice = []*Variable{
-	{
-		Name:        "Env",
-		Description: "The env name. One of dev,test,stable,pre,sim,gray,prod.",
-		Default:     "dev",
-	},
-	{
-		Name:        "ClusterName",
-		Description: "The Cluster Name.",
-		Default:     "kubernetes-dev",
-	},
-	{
-		Name:        "Image",
-		Description: "The Image Address.",
-		Default:     "gcr.io/google-samples/gb-frontend:v4",
-	},
-}
+var (
+	TestVariableMap   map[string]*Variable
+	TestVariableSlice []*Variable
+)
 
 func TestNewTemplate(t *testing.T) {
 	type args struct {
@@ -73,7 +45,7 @@ func TestNewTemplate(t *testing.T) {
 				return
 			}
 			if !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("NewTemplate() = %v, want %v", got, tt.want)
+				t.Errorf("NewTemplate() = %v, want %v", json.MustPrettyMarshalString(got), json.MustPrettyMarshalString(tt.want))
 			}
 		})
 	}
@@ -147,8 +119,8 @@ func TestTemplate_Variables(t *testing.T) {
 				variableSlice: TestVariableSlice,
 			},
 			want: []Variable{
-				*TestVariableMap["Env"],
 				*TestVariableMap["ClusterName"],
+				*TestVariableMap["Env"],
 				*TestVariableMap["Image"],
 			},
 			wantErr: false,
@@ -241,4 +213,61 @@ func TestNewVariable(t *testing.T) {
 			}
 		})
 	}
+}
+
+func TestMain(m *testing.M) {
+	TestTemplateConfiguration = &TemplateConfiguration{
+		Variables: map[string]Variable{
+			"ClusterName": {
+				Description: "The Cluster Name.",
+				Default:     "kubernetes-dev",
+			},
+			"Env": {
+				Description: "The env name. One of dev,test,stable,pre,sim,gray,prod.",
+				Default:     "dev",
+			},
+			"Image": {
+				Description: "The Image Address.",
+				Default:     "gcr.io/google-samples/gb-frontend:v4",
+			},
+		},
+	}
+
+	TestVariableMap = map[string]*Variable{
+		"ClusterName": {
+			Name:        "ClusterName",
+			Description: "The Cluster Name.",
+			Default:     "kubernetes-dev",
+		},
+		"Env": {
+			Name:        "Env",
+			Description: "The env name. One of dev,test,stable,pre,sim,gray,prod.",
+			Default:     "dev",
+		},
+		"Image": {
+			Name:        "Image",
+			Description: "The Image Address.",
+			Default:     "gcr.io/google-samples/gb-frontend:v4",
+		},
+	}
+
+	TestVariableSlice = []*Variable{
+		{
+			Name:        "ClusterName",
+			Description: "The Cluster Name.",
+			Default:     "kubernetes-dev",
+		},
+		{
+			Name:        "Env",
+			Description: "The env name. One of dev,test,stable,pre,sim,gray,prod.",
+			Default:     "dev",
+		},
+		{
+			Name:        "Image",
+			Description: "The Image Address.",
+			Default:     "gcr.io/google-samples/gb-frontend:v4",
+		},
+	}
+
+	os.Exit(m.Run())
 }

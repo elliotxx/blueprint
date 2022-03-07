@@ -2,6 +2,7 @@ package blueprint
 
 import (
 	"errors"
+	"sort"
 )
 
 const TemplateConfigurationFilenameWithoutExt = "blueprint"
@@ -19,7 +20,18 @@ func NewTemplate(tc *TemplateConfiguration) (*Template, error) {
 		variableSlice: []*Variable{},
 	}
 
-	for k, v := range tc.Variables {
+	// Sort variables by name
+	variableKeys := []string{}
+	for k := range tc.Variables {
+		variableKeys = append(variableKeys, k)
+	}
+
+	sort.Strings(variableKeys)
+
+	// Create Template
+	for _, k := range variableKeys {
+		v := tc.Variables[k]
+
 		nv, err := NewVariable(k, v.Description, v.Default)
 		if err != nil {
 			return nil, err

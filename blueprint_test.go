@@ -7,22 +7,7 @@ import (
 	"github.com/elliotxx/gulu/json"
 )
 
-var TestTemplateConfiguration = &TemplateConfiguration{
-	Variables: map[string]Variable{
-		"Env": {
-			Description: "The env name. One of dev,test,stable,pre,sim,gray,prod.",
-			Default:     "dev",
-		},
-		"ClusterName": {
-			Description: "The Cluster Name.",
-			Default:     "kubernetes-dev",
-		},
-		"Image": {
-			Description: "The Image Address.",
-			Default:     "gcr.io/google-samples/gb-frontend:v4",
-		},
-	},
-}
+var TestTemplateConfiguration *TemplateConfiguration
 
 func TestParseTemplateConfiguration(t *testing.T) {
 	type args struct {
