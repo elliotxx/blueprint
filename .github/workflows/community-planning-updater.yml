@@ -17,7 +17,7 @@ jobs:
         uses: elliotxx/osp-action@main
         with:
           # Optional: version of OSP to use (default: latest)
-          version: 'latest'
+          version: 'v0.1.7'
           
           # Optional: working directory (default: project root)
           working-directory: '.'
