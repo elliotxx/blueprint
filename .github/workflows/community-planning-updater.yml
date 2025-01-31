@@ -23,7 +23,7 @@ jobs:
           working-directory: '.'
           
           # Optional: GitHub token (default: ${{ github.token }})
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          # github-token: ${{ secrets.GITHUB_TOKEN }}
           
           # Optional: skip caching (default: false)
           skip-cache: false
