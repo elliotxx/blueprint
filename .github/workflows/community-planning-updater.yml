@@ -23,13 +23,13 @@ jobs:
           working-directory: '.'
           
           # Optional: GitHub token (default: ${{ github.token }})
-          # github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           
           # Optional: skip caching (default: false)
           skip-cache: false
 
           # Optional: enable debug mode
-          debug: true
+          debug: false
           
           # Optional: additional OSP arguments
           args: 'plan --yes --priorities priority/high,priority/medium,priority/low --categories bug,documentation,enhancement'
