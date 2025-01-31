@@ -27,6 +27,9 @@ jobs:
           
           # Optional: skip caching (default: false)
           skip-cache: false
+
+          # Optional: enable debug mode
+          debug: true
           
           # Optional: additional OSP arguments
           args: 'plan --yes --priorities priority/high,priority/medium,priority/low --categories bug,documentation,enhancement'
