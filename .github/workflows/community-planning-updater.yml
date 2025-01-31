@@ -1,0 +1,32 @@
+name: Community Planning Updater
+
+on:
+  # Trigger on milestone events
+  milestone:
+    types: [created, edited, deleted]
+  # Trigger on issue events
+  issues:
+    types: [opened, edited, deleted, transferred, milestoned, demilestoned, labeled, unlabeled, assigned, unassigned]
+
+jobs:
+  osp-management:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate Milestone Planning
+        uses: elliotxx/osp-action@main
+        with:
+          # Optional: version of OSP to use (default: latest)
+          version: 'latest'
+          
+          # Optional: working directory (default: project root)
+          working-directory: '.'
+          
+          # Optional: GitHub token (default: ${{ github.token }})
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          
+          # Optional: skip caching (default: false)
+          skip-cache: false
+          
+          # Optional: additional OSP arguments
+          args: 'plan --yes --priorities priority/high,priority/medium,priority/low --categories bug,documentation,enhancement'
