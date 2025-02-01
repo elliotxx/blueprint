@@ -35,5 +35,5 @@ jobs:
             --onboard-labels 'help wanted,good first issue'
             --difficulty-labels 'help wanted,good first issue'
             --category-labels bug,documentation,enhancement
-            --target-title 'Community tasks 🎖︎'
+            --target-title 'Community tasks | 新手任务清单 🎖︎'
 
