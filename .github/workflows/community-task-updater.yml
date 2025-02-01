@@ -29,5 +29,5 @@ jobs:
           skip-cache: false
           
           # Optional: additional OSP arguments
-          args: 'onboard --yes --onboard-labels "help wanted,good first issue" --difficulty-labels "help wanted,good first issue" --category-labels "bug,documentation,enhancement"'
+          args: 'onboard --yes --onboard-labels "help wanted,good first issue" --difficulty-labels "help wanted,good first issue" --category-labels "bug,documentation,enhancement" --target-title "Community tasks | 新手任务清单 🎖︎"'
 
