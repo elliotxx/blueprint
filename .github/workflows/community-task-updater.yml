@@ -33,7 +33,7 @@ jobs:
             onboard
             --yes
             --onboard-labels 'help wanted,good first issue'
-            --difficulty-labels 'help wanted,good first issue'
+            --difficulty-labels 'good first issue,help wanted'
             --category-labels bug,documentation,enhancement
             --target-title 'Community tasks | 新手任务清单 🎖︎'
 
