@@ -1,6 +1,8 @@
 name: Community Task Updater
 
 on:
+  # Manually triggered
+  workflow_dispatch:
   # Trigger on issue events
   issues:
     types: [opened, edited, deleted, transferred, milestoned, demilestoned, labeled, unlabeled, assigned, unassigned]
